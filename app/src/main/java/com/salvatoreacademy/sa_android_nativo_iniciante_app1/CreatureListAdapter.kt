@@ -29,7 +29,7 @@ class CreatureListAdapter(private val items: List<Creature>) : RecyclerView.Adap
 
             // Carregamento da Imagem com Glide
             val ivCreture = itemView.findViewById<ImageView>(R.id.ivCreature)
-            Glide.with(itemView).load(item.imageUrl).into(ivCreture)
+            Glide.with(itemView).load(item.image).into(ivCreture)
 
 
             // Buscar elemento pelo id e armanezar em variável (val ou var) - val: não muda - var: pode mudar
