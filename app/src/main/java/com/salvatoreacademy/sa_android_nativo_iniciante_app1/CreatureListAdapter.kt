@@ -4,10 +4,12 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 // Boilerpalte -> Trecho de código que a gente não necessariamente precisa saber funcionan no detale, mas precisamos manter
 // e saber como usar.
@@ -17,12 +19,17 @@ class CreatureListAdapter(private val items: List<Creature>) : RecyclerView.Adap
     class CreatureViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Informações para quando criar um ViewHolder novo, saber como exibir as infos do item
         fun bindView(item: Creature) {
+            // Exibição do número
             val tvNumber = itemView.findViewById<TextView>(R.id.tvNumber)
             tvNumber.text = item.number.toString()
+
+            // Exibição do nome
             val tvName = itemView.findViewById<TextView>(R.id.tvName)
             tvName.text = item.name
 
-
+            // Carregamento da Imagem com Glide
+            val ivCreture = itemView.findViewById<ImageView>(R.id.ivCreature)
+            Glide.with(itemView).load(item.imageUrl).into(ivCreture)
 
 
             // Buscar elemento pelo id e armanezar em variável (val ou var) - val: não muda - var: pode mudar
